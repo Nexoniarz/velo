@@ -1,0 +1,327 @@
+/* Velo documentation stylesheet — purple theme (#922992)
+ * Derived from the LuaJIT bluequad design by Mike Pall.
+ * Velo modifications by Nexoniarz, 2026.
+ */
+/* colorscheme:
+ *
+ * site  |  head   #922992/white   | #7a3a7a/#f0dff0
+ * ------+------   ----------------+-------------------
+ * nav   |  main   #d4aad4         | #f0dff0/black
+ *
+ * nav:  hiback   loback     #e2c5e2 #d4add4
+ *       hiborder loborder   #f0dff0 #bb88bb
+ *       link     hover      #6b1a6b #ff0000
+ *
+ * link: link visited hover  #6b1a6b #922992 #ff0000
+ *
+ * main: boxback  boxborder  #faf2fa #d4aad4
+ */
+body {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: #e0d8e0;
+  color: #000000;
+}
+a:link {
+  text-decoration: none;
+  background: transparent;
+  color: #6b1a6b;
+}
+a:visited {
+  text-decoration: none;
+  background: transparent;
+  color: #922992;
+}
+a:hover, a:active {
+  text-decoration: underline;
+  background: transparent;
+  color: #ff0000;
+}
+h1, h2, h3 {
+  font-weight: bold;
+  text-align: left;
+  margin: 0.5em 0;
+  padding: 0;
+  background: transparent;
+}
+h1 {
+  font-size: 200%;
+  line-height: 3em;
+  margin: 0;
+}
+h2 {
+  font-size: 150%;
+  color: #606060;
+}
+h3 {
+  font-size: 125%;
+  color: #404040;
+}
+p {
+  max-width: 600px;
+  margin: 0 0 0.5em 0;
+  padding: 0;
+}
+b {
+  color: #404040;
+}
+ul, ol {
+  max-width: 600px;
+  margin: 0.5em 0;
+  padding: 0 0 0 2em;
+}
+ul {
+  list-style: outside square;
+}
+ol {
+  list-style: outside decimal;
+}
+li {
+  margin: 0;
+  padding: 0;
+}
+dl {
+  max-width: 600px;
+  margin: 1em 0;
+  padding: 1em;
+  border: 1px solid #d4aad4;
+  background: #faf2fa;
+}
+dt {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+dt sup {
+  float: right;
+  margin-left: 1em;
+  color: #808080;
+}
+dt a:visited {
+  text-decoration: none;
+  color: #6b1a6b;
+}
+dt a:hover, dt a:active {
+  text-decoration: none;
+  color: #ff0000;
+}
+dd {
+  margin: 0.5em 0 0 2em;
+  padding: 0;
+}
+div.tablewrap {
+  max-width: 600px;
+}
+table {
+  table-layout: fixed;
+  border-spacing: 0;
+  border-collapse: collapse;
+  max-width: 600px;
+  width: 100%;
+  margin: 1em 0;
+  padding: 0;
+  border: 1px solid #d4aad4;
+}
+tr {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+tr.odd {
+  background: #faf2fa;
+}
+tr.separate td {
+  border-top: 1px solid #d4aad4;
+}
+td {
+  text-align: left;
+  margin: 0;
+  padding: 0.2em 0.5em;
+  border: none;
+}
+tt, code, kbd, samp {
+  font-family: Courier New, Courier, monospace;
+  line-height: 1.2;
+  font-size: 110%;
+}
+kbd {
+  font-weight: bolder;
+}
+blockquote, pre {
+  max-width: 600px;
+  margin: 1em 2em;
+  padding: 0;
+}
+pre {
+  line-height: 1.1;
+}
+pre.code {
+  line-height: 1.4;
+  margin: 0.5em 0 1em 0.5em;
+  padding: 0.5em 1em;
+  border: 1px solid #d4aad4;
+  background: #faf2fa;
+}
+pre.mark {
+  padding-left: 2em;
+}
+span.codemark {
+  position:absolute;
+  left: 16em;
+  color: #802080;
+}
+span.mark {
+  color: #802080;
+  font-family: Courier New, Courier, monospace;
+  line-height: 1.1;
+}
+img {
+  border: none;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+}
+img.left {
+  float: left;
+  margin: 0.5em 1em 0.5em 0;
+}
+img.right {
+  float: right;
+  margin: 0.5em 0 0.5em 1em;
+}
+.indent {
+  padding-left: 1em;
+}
+.flush {
+  clear: both;
+  visibility: hidden;
+}
+.hide, .noscreen {
+  display: none !important;
+}
+.ext {
+  color: #ff8000;
+}
+.note {
+  padding: 0.5em 1em;
+  border-left: 3px solid #d4aad4;
+}
+#site {
+  clear: both;
+  float: left;
+  width: 13em;
+  text-align: center;
+  font-weight: bold;
+  margin: 0;
+  padding: 0.5em 0;
+  background: transparent;
+  color: #ffffff;
+}
+#site a {
+  font-size: 110%;
+}
+#site a:link, #site a:visited {
+  text-decoration: none;
+  font-weight: bold;
+  background: transparent;
+  color: #ffffff;
+}
+#site span {
+  line-height: 2em;
+}
+#site img {
+  display: block;
+  margin: 0.3em auto 0.2em auto;
+  filter: brightness(0) invert(1);
+}
+#logo {
+  color: #ffb3ff;
+}
+#head {
+  margin: 0;
+  padding: 0 0 0 2em;
+  border-left: solid 13em #922992;
+  border-right: solid 3em #7a3a7a;
+  background: #7a3a7a;
+  color: #f0dff0;
+}
+#nav {
+  clear: both;
+  float: left;
+  overflow: hidden;
+  text-align: left;
+  line-height: 1.5;
+  width: 13em;
+  padding-top: 1em;
+  background: transparent;
+}
+#nav ul {
+  list-style: none outside;
+  margin: 0;
+  padding: 0;
+}
+#nav li {
+  margin: 0;
+  padding: 0;
+}
+#nav a {
+  display: block;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0;
+  padding: 2px 1em;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  color: #6b1a6b;
+}
+#nav a:hover, #nav a:active {
+  text-decoration: none;
+  border-top: 1px solid #bb88bb;
+  border-bottom: 1px solid #f0dff0;
+  background: #d4add4;
+  color: #ff0000;
+}
+#nav a.current, #nav a.current:hover, #nav a.current:active {
+  border-top: 1px solid #f0dff0;
+  border-bottom: 1px solid #bb88bb;
+  background: #e2c5e2;
+  color: #6b1a6b;
+}
+#nav ul ul a {
+  padding: 0 1em 0 1.7em;
+}
+#nav ul ul ul a {
+  padding: 0 0.5em 0 2.4em;
+}
+#main {
+  line-height: 1.5;
+  text-align: left;
+  margin: 0;
+  padding: 1em 2em;
+  border-left: solid 13em #d4aad4;
+  border-right: solid 3em #f0dff0;
+  background: #f0dff0;
+}
+#foot {
+  clear: both;
+  font-size: 80%;
+  text-align: center;
+  margin: 0;
+  padding: 0.5em;
+  background: #7a3a7a;
+  color: #ffffff;
+}
+#foot a:link, #foot a:visited {
+  text-decoration: underline;
+  background: transparent;
+  color: #ffffff;
+}
+#foot a:hover, #foot a:active {
+  text-decoration: underline;
+  background: transparent;
+  color: #d4aad4;
+}

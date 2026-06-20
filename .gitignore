@@ -1,0 +1,22 @@
+# Build artifacts
+*.o
+*.a
+*.so
+*.so.*
+*.obj
+*.lib
+*.dll
+*.dylib
+
+# Compiled outputs
+src/velo
+src/luajit
+src/host/minilua
+src/host/buildvm
+src/luajit_host
+
+# Velo bytecode
+*.veloc
+
+# Temp files
+/tmp/velo_*
