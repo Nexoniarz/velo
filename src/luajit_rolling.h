@@ -29,13 +29,14 @@
 #define _LUAJIT_H
 
 #include "lua.h"
+#include "velo_config.h"
 
-#define LUAJIT_VERSION		"Velo 1.0.0"
-#define LUAJIT_VERSION_NUM	10000
+#define LUAJIT_VERSION		VELO_VERSION
+#define LUAJIT_VERSION_NUM	VELO_VERSION_NUM
 #define LUAJIT_VERSION_SYM	luaJIT_version_2_1_ROLLING
-#define LUAJIT_COPYRIGHT	"Copyright (C) 2026 Nexoniarz. Based on LuaJIT \xA9 2005-2026 Mike Pall."
-#define LUAJIT_URL		"https://github.com/Nexoniarz/velo"
-#define LUAJIT_LICENSE		"Apache License 2.0"
+#define LUAJIT_COPYRIGHT	VELO_COPYRIGHT
+#define LUAJIT_URL		VELO_URL
+#define LUAJIT_LICENSE		VELO_LICENSE
 
 /* Modes for luaJIT_setmode. */
 #define LUAJIT_MODE_MASK	0x00ff

@@ -16,6 +16,7 @@
 #include "lauxlib.h"
 #include "lualib.h"
 #include "luajit.h"
+#include "velo_config.h"
 
 #include "lj_arch.h"
 
@@ -472,7 +473,8 @@ static int docompile_exec(lua_State *L, const char *fname, const char *out)
 {
   ByteBuf bb = { NULL, 0, 0 };
   FILE *cfp;
-  char tmp_c[512], tmp_main[512], cmd[4096];
+  char tmp_c[512], tmp_main[512];
+  char *cmd = NULL;
   size_t i;
   int ret;
 
@@ -547,12 +549,18 @@ static int docompile_exec(lua_State *L, const char *fname, const char *out)
   }
   /* Build compile command: pass libluajit.a by path to avoid picking up the
    * system shared library. --whole-archive pulls in lib_velo.o (Velo runtime). */
-  snprintf(cmd, sizeof(cmd),
-    "cc -O2 -o '%s' '%s' '%s'"
-    " -I'%s' -Wl,--whole-archive '%s/libluajit.a' -Wl,--no-whole-archive"
-    " -ldl -lm",
-    out, tmp_main, tmp_c, bindir, bindir);
+  if (asprintf(&cmd,
+        "cc -O2 -o '%s' '%s' '%s'"
+        " -I'%s' -Wl,--whole-archive '%s/libluajit.a' -Wl,--no-whole-archive"
+        " -ldl -lm",
+        out, tmp_main, tmp_c, bindir, bindir) < 0 || !cmd) {
+    remove(tmp_c);
+    remove(tmp_main);
+    l_message("--compile --exec: out of memory building compile command");
+    return 1;
+  }
   ret = system(cmd);
+  free(cmd);
   remove(tmp_c);
   remove(tmp_main);
   if (ret != 0) {
@@ -586,7 +594,7 @@ static int docompile(lua_State *L, char **argv, int i, int make_exec)
   if (argv[j+1] && argv[j+1][0] != '-') {
     out = argv[j+1];
   } else {
-    const char *suffix = make_exec ? "" : ".veloc";
+    const char *suffix = make_exec ? "" : VELO_BYTECODE_EXT;
     if (!derive_outname(fname, suffix, outbuf, sizeof(outbuf))) {
       l_message("--compile: filename too long");
       return 1;

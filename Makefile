@@ -3,8 +3,8 @@
 # Builds the Velo language runtime and places the binary in build/
 ##############################################################################
 
-MAJVER = 2
-MINVER = 1
+MAJVER = $(shell grep -E '^\s*#define\s+VELO_VERSION_MAJOR' src/velo_config.h | grep -oE '[0-9]+')
+MINVER = $(shell grep -E '^\s*#define\s+VELO_VERSION_MINOR' src/velo_config.h | grep -oE '[0-9]+')
 ABIVER = 5.1
 
 export PREFIX  ?= /usr/local

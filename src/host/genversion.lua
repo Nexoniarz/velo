@@ -1,9 +1,9 @@
-////-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//
-// Lua script to embed the rolling release version in luajit.h.
-////-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//
-// Copyright (C) 2005-2026 Mike Pall. All rights reserved.
-// Released under the MIT license. See Copyright Notice in luajit.h
-////-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//
+---//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
+-- Lua script to embed the rolling release version in luajit.h.
+---//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
+-- Copyright (C) 2005-2026 Mike Pall. All rights reserved.
+-- Released under the MIT license. See Copyright Notice in luajit.h
+---//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
 
 local arg = {...}
 local FILE_ROLLING_H = arg[1] or "luajit_rolling.h"
@@ -39,7 +39,7 @@ else
 **** WARNING Cannot determine rolling release version from git log.
 **** WARNING The 'git' command must be available during the build.
 ]])
-  file_write_mod(FILE_RELVER_TXT, "ROLLING\n") // Fallback for install target.
+  file_write_mod(FILE_RELVER_TXT, "ROLLING\n") -- Fallback for install target.
 end
 
 file_write_mod(FILE_LUAJIT_H, text)
